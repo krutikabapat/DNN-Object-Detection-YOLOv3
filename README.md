@@ -7,6 +7,10 @@ deep learning based object detection using YOLOv3 with OpenCV
 2. Single shot detectors (SSD).  
 3. YOLO.  
 
+Both SSD and YOLO use one-stage detector strategy.  
+
+
+
 
 
 
