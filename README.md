@@ -9,6 +9,13 @@ deep learning based object detection using YOLOv3 with OpenCV
 
 Both SSD and YOLO use one-stage detector strategy.  
 
+## Requirements:-  
+
+1. OpenCV 3.4.2 and above.  
+
+## Usage:-  
+
+1. <code> python3 yolo.py 'path to image' . </code>
 
 
 
