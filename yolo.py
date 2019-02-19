@@ -6,10 +6,10 @@ import os.path
 import time
 
 
-c_threshold = 0.5
-nms = 0.4
-width = 416
-height = 416
+c_threshold = 0.5 # set threshold for bounding box values
+nms = 0.4 # set threshold for non maximum supression
+width = 416  # width of input image
+height = 416 # height of input image
 
 parser = argparse.ArgumentParser(description = 'YOLO')
 parser.add_argument('image', help = 'Path to Image File')
@@ -20,23 +20,26 @@ classes = None
 with open(classesFile, 'rt') as f:
     classes = f.read().rstrip('\n').split('\n')
 
+# initialize a list of colors to represent each possible class label
 COLORS = np.random.randint(0, 255, size=(len(classes), 3),
 	dtype="uint8")
  
-# initialize a list of colors to represent each possible class label
-
+# PATH to weight and config files
 config = './yolov3.cfg'
 weight = './yolov3.weights'
 
-
+# Read the model using dnn
 net = cv.dnn.readNetFromDarknet(config, weight)
 image = cv.imread(args['image'])
 
+
 (H,W) = image.shape[:2]
 
+# Get the names of output layers
 ln = net.getLayerNames()
 ln = [ln[i[0] - 1] for i in net.getUnconnectedOutLayers()]
 
+# generate blob for image input to the network
 blob = cv.dnn.blobFromImage(image,1/255,(416,416),swapRB=True, crop=False)
 net.setInput(blob)
 
@@ -47,6 +50,9 @@ layersOutputs = net.forward(ln)
 print(layersOutputs)
 
 end = time.time()
+
+# print the time required
+print( end- start)
 
 boxes = []
 confidences = []
@@ -79,7 +85,7 @@ for output in layersOutputs:
 			confidences.append(float(confidence))
 			classIDs.append(classID)
 			
-
+# Remove unnecessary boxes using non maximum suppression
 idxs = cv.dnn.NMSBoxes(boxes, confidences, c_threshold, nms)
 
 if len(idxs) > 0:
