@@ -24,6 +24,10 @@ Both SSD and YOLO use one-stage detector strategy.
 
 1. <code> python3 yolo.py 'path to image' . </code>
 
+## Run time:-
+
+1. 0.7514 seconds  
+
 
 
 
