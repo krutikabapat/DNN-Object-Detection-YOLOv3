@@ -13,6 +13,13 @@ Both SSD and YOLO use one-stage detector strategy.
 
 1. OpenCV 3.4.2 and above.  
 
+## File structure:-
+
+1. Models.sh (contains link to model files).  
+2. yolo.py (python code for yolo).  
+3. yolo.cpp (c++ code for yolo).  
+5. lady.jpeg (input image file).  
+
 ## Usage:-  
 
 1. <code> python3 yolo.py 'path to image' . </code>
