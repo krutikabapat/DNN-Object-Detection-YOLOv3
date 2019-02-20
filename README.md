@@ -19,10 +19,12 @@ Both SSD and YOLO use one-stage detector strategy.
 2. yolo.py (python code for yolo).  
 3. yolo.cpp (c++ code for yolo).  
 5. lady.jpeg (input image file).  
+6. video.mp4
 
 ## Usage:-  
 
 1. <code> python3 yolo.py 'path to image' . </code>
+2. <code> python3 yolo_video.py --video 'path to video' </code>  
 
 ## Run time:-
 
