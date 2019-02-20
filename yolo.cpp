@@ -13,37 +13,45 @@ using namespace std;
 using namespace cv;
 using namespace dnn;
 
-
+// confidence threshold
 float conf_threshold = 0.5;
+// nms threshold
 float nms = 0.4;
 int width = 416;
 int height = 416;
 
 vector<string> classes;
 
+// remove unnecessary bounding boxes
 void remove_box(Mat&frame, const vector<Mat>&out);
 
+// draw bounding boxes
 void draw_box(int classId, float conf, int left, int top, int right, int bottom, Mat& frame);
 
+// get output layers
 vector<String> getOutputsNames(const Net& net);
 
+// driver function
 int main( int argc, char** argv){
 
+    // get labels of all classes
     string classesFile = "coco.names";
     ifstream ifs(classesFile.c_str());
     string line;
     while (getline(ifs, line)) classes.push_back(line);
-
+    
+    // load model weights and architecture
     String configuration = "yolov3.cfg";
     String model = "yolov3.weights";
 
     // Load the network
-    
     Net net = readNetFromDarknet(configuration, model);
     Mat frame, blob;
-
+    
+    // read the image
     frame = imread(argv[1],CV_LOAD_IMAGE_COLOR);
-
+    
+   // convert image to blob
     blobFromImage(frame, blob, 1/255, cvSize(width,height),Scalar(0,0,0), true, false);
     net.setInput(blob);
 
