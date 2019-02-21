@@ -23,9 +23,14 @@ Both SSD and YOLO use one-stage detector strategy.
 
 ## Usage:-  
 
+For python:-  
+
 1. <code> python3 yolo.py 'path to image' . </code>
 2. <code> python3 yolo_video.py --video 'path to video' </code>  
 
+For C++
+
+1. <code> g++ yolo.cpp `pkg-config --cflags --libs opencv` </code>
 ## Run time:-
 
 1. 0.7514 seconds  
