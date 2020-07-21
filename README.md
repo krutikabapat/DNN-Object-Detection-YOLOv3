@@ -1,6 +1,8 @@
 # DNN-Object-Detection-YOLO3
-deep learning based object detection using YOLOv3 with OpenCV
+Deep learning based object detection using YOLOv3 with OpenCV
 
+## Reference Blog    
+1. https://www.pyimagesearch.com/2017/09/11/object-detection-with-deep-learning-and-opencv/    
 ## There are three main object detectors using deep learning:-
 
 1. R-CNN (Selective Search), Fast R-CNN( Region proposed Network and R-CNN).  
